@@ -12,15 +12,15 @@ SROs = r.db('jurispect').table('documents').filter({:type => 'Notice'}).run
 
 SROs.each{ |sro| 
   agencies = []
-
+  docId = sro['id']
   
-  if sro.toc_subject.include? "Proposed Rule"
+  if sro['toc_subject'].include? "Proposed Rule"
     type = "Proposed Rule"
   else
     type = "Rule"
   end
   
-  sro_name = sro.toc_toc.downcase
+  sro_name = sro['toc_doc'].downcase
   
   if(sro_name.include? "bats exchange")
     agency = {:id=>9001,:name=>'BATS Exchange',:raw_name=>'BATS Exchange', :url=>'http://batstrading.com', :parent_id=>466,:json_url=>''}
@@ -225,8 +225,6 @@ SROs.each{ |sro|
   end
   
 
-
-  r.db('jurispect').table('documents').get(reg).update({:topics=>all_topics}).run
-
+  r.db('jurispect').table('documents').get(docId).update({:type=>type, :agencies=>agencies, :sro=>true}).run
 
 }
