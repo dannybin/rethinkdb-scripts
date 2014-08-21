@@ -1,0 +1,33 @@
+{:Name=>"Meg", :Email=>"meg.cimino@morganstanley.com", :data=>{:Deadlines=>[], :Updates=>[], :Recomended=>[]}}
+{:Name=>"bye", :Email=>"bye@bye.com", :data=>{:Deadlines=>[{:title=>"Appraisals-Availability to Applicants and Requirements for Transactions Involving an Existing Extension of Credit", :link=>"http://tag.jurispect.com/#/document/2014-14889", :agency=>"National Credit Union Administration", :type=>"Comments Due Date"}], :Updates=>[], :Recomended=>[]}}
+{:Name=>"Eugene", :Email=>"eugene.yim@mcgladrey.com", :data=>{:Deadlines=>[{:title=>"Appraisals-Availability to Applicants and Requirements for Transactions Involving an Existing Extension of Credit", :link=>"http://tag.jurispect.com/#/document/2014-14889", :agency=>"National Credit Union Administration", :type=>"Comments Due Date"}, {:title=>"Asset Securitization", :link=>"http://tag.jurispect.com/#/document/2014-14926", :agency=>"National Credit Union Administration", :type=>"Comments Due Date"}, {:title=>"Safe Harbor", :link=>"http://tag.jurispect.com/#/document/2014-14919", :agency=>"National Credit Union Administration", :type=>"Comments Due Date"}], :Updates=>[], :Recomended=>[]}}
+{:Name=>"Bricklin", :Email=>"bricklin.dwyer@bnpparibas.com", :data=>{:Deadlines=>[], :Updates=>[], :Recomended=>[]}}
+{:Name=>"Tonio", :Email=>"tdesorrento@sofi.com", :data=>{:Deadlines=>[], :Updates=>[], :Recomended=>[]}}
+{:Name=>"Kim", :Email=>"kim.van.doorn@morganstanley.com", :data=>{:Deadlines=>[], :Updates=>[], :Recomended=>[]}}
+{:Name=>"Stephen", :Email=>"sbrown@governanceprofessionals.org", :data=>{:Deadlines=>[{:title=>"Annual Stress Test", :link=>"http://tag.jurispect.com/#/document/2014-14389", :agency=>"Federal Deposit Insurance Corporation", :type=>"Comments Due Date"}], :Updates=>[], :Recomended=>[]}}
+{:Name=>"hi", :Email=>"hi@hi.com", :data=>{:Deadlines=>[{:title=>"Appraisals-Availability to Applicants and Requirements for Transactions Involving an Existing Extension of Credit", :link=>"http://tag.jurispect.com/#/document/2014-14889", :agency=>"National Credit Union Administration", :type=>"Comments Due Date"}], :Updates=>[], :Recomended=>[]}}
+{:Name=>"Debra", :Email=>"debra.kamen@morganstanley.com", :data=>{:Deadlines=>[], :Updates=>[], :Recomended=>[]}}
+{:Name=>"Laura", :Email=>"laura.hurtado@pillsburylaw.com", :data=>{:Deadlines=>[], :Updates=>[], :Recomended=>[]}}
+{:Name=>"Jennifer", :Email=>"jmazurek@camdennational.com", :data=>{:Deadlines=>[], :Updates=>[], :Recomended=>[]}}
+{:Name=>"Phyllis", :Email=>"phyllis.vecchione@us.bnpparibas.com", :data=>{:Deadlines=>[], :Updates=>[], :Recomended=>[]}}
+{:Name=>"Jose", :Email=>"jose.despian@morganstanley.com", :data=>{:Deadlines=>[], :Updates=>[], :Recomended=>[]}}
+{:Name=>"Buffy", :Email=>"bdyess@gnty.com", :data=>{:Deadlines=>[{:title=>"Minority and Women Inclusion Amendments", :link=>"http://tag.jurispect.com/#/document/2014-14512", :agency=>"Federal Housing Finance Agency", :type=>"Comments Due Date"}, {:title=>"Regulatory Publication and Review Under the Economic Growth and Regulatory Paperwork Reduction Act of 1996", :link=>"http://tag.jurispect.com/#/document/2014-12741", :agency=>"Treasury Department", :type=>"Comments Due Date"}], :Updates=>[], :Recomended=>[]}}
+{:Name=>"Han", :Email=>"han.shen.wg09@gmail.com", :data=>{:Deadlines=>[], :Updates=>[], :Recomended=>[]}}
+{:Name=>"Karen", :Email=>"karen.gerringer@morganstanley.com", :data=>{:Deadlines=>[], :Updates=>[], :Recomended=>[]}}
+{:Name=>"Test", :Email=>"test@jurispect.com", :data=>{:Deadlines=>[{:title=>"Appraisals-Availability to Applicants and Requirements for Transactions Involving an Existing Extension of Credit", :link=>"http://tag.jurispect.com/#/document/2014-14889", :agency=>"National Credit Union Administration", :type=>"Comments Due Date"}], :Updates=>[], :Recomended=>[]}}
+{:Name=>"Shawn", :Email=>"shawn.golhar@barclays.com", :data=>{:Deadlines=>[], :Updates=>[], :Recomended=>[]}}
+{:Name=>"Brent", :Email=>"brentharris@redstonestrategy.com", :data=>{:Deadlines=>[{:title=>"Modeling, Data, and Analysis Reliability Standards", :link=>"http://tag.jurispect.com/#/document/2014-14850", :agency=>"Energy Department", :type=>"Comments Due Date"}, {:title=>"Energy Conservation Program for Consumer Products: Energy Conservation Standards for Residential Furnace Fans", :link=>"http://tag.jurispect.com/#/document/2014-15387", :agency=>"Energy Department", :type=>"Effective Date"}], :Updates=>[], :Recomended=>[]}}
+{:Name=>"Catherine", :Email=>"catherine@jurispect.com", :data=>{:Deadlines=>[], :Updates=>[], :Recomended=>[]}}
+{:Name=>"Diana", :Email=>"diana.singson@gmail.com", :data=>{:Deadlines=>[], :Updates=>[], :Recomended=>[]}}
+{:Name=>"Andrew", :Email=>"andrew@jurispect.com", :data=>{:Deadlines=>[], :Updates=>[], :Recomended=>[]}}
+{:Name=>"Curtis", :Email=>"curtis.kloepfer@jpmorgan.com", :data=>{:Deadlines=>[], :Updates=>[], :Recomended=>[]}}
+{:Name=>"Charlie", :Email=>"charlie@slidepay.com", :data=>{:Deadlines=>[], :Updates=>[], :Recomended=>[]}}
+{:Name=>"Sandy", :Email=>"sandy.gerber@us.bnpparibas.com", :data=>{:Deadlines=>[], :Updates=>[], :Recomended=>[]}}
+{:Name=>"Danny", :Email=>"bin.danny@gmail.com", :data=>{:Deadlines=>[{:title=>"Appraisals-Availability to Applicants and Requirements for Transactions Involving an Existing Extension of Credit", :link=>"http://tag.jurispect.com/#/document/2014-14889", :agency=>"National Credit Union Administration", :type=>"Comments Due Date"}], :Updates=>[], :Recomended=>[]}}
+{:Name=>"Annie", :Email=>"annie.hsu@us.bnpparibas.com", :data=>{:Deadlines=>[], :Updates=>[], :Recomended=>[]}}
+{:Name=>"Jed", :Email=>"jed.bader@jpmorgan.com", :data=>{:Deadlines=>[{:title=>"Regulatory Publication and Review Under the Economic Growth and Regulatory Paperwork Reduction Act of 1996", :link=>"http://tag.jurispect.com/#/document/2014-12741", :agency=>"Treasury Department", :type=>"Comments Due Date"}], :Updates=>[], :Recomended=>[]}}
+{:Name=>"Jo", :Email=>"m.jo.malins@morganstanley.com", :data=>{:Deadlines=>[], :Updates=>[], :Recomended=>[]}}
+{:Name=>"Dennine", :Email=>"dennine.bullard@morganstanley.com", :data=>{:Deadlines=>[], :Updates=>[], :Recomended=>[]}}
+{:Name=>"Josh", :Email=>"josh.banerje@blackrock.com", :data=>{:Deadlines=>[], :Updates=>[], :Recomended=>[]}}
+{:Name=>"Michael", :Email=>"michael@jurispect.com", :data=>{:Deadlines=>[], :Updates=>[], :Recomended=>[]}}
+{:Name=>"James", :Email=>"james.darling@us.bnpparibas.com", :data=>{:Deadlines=>[], :Updates=>[], :Recomended=>[]}}
