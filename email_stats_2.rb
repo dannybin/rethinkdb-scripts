@@ -21,8 +21,8 @@ users.each{ |user|
   user_deadlines = []
   user_updates = []
   recommended = []
-  num_updates = 0
-  msg = ""
+  user_news = []
+
 
   follows = r.db('jurispect').table('actions').filter({origin: user['id']}).run
 
@@ -74,8 +74,13 @@ users.each{ |user|
 
   }
   
+  email_news = r.db('jurispect').table('email_news').filter{ |news| news['creation_time'].eq(today)}.run
+  email_news.each{ |article|
+    news_article = {:title=>article['title'], :link=>article['link'], :source=>article['source']}
+    user_news.push(news_article)
+  }
 
-  result = {Name: user['first_name'], Email: user['email'],  data: { Deadlines: user_deadlines, Updates: user_updates, Recomended: recommended} }
+  result = {Name: user['first_name'], Email: user['email'],  data: { Deadlines: user_deadlines, Updates: user_updates, Recomended: recommended, News: user_news}}
  
   output.push(result)
 
