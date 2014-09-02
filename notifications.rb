@@ -28,18 +28,18 @@ users.each{ |user|
     if(reg_data['comments_close_on'] && reg_data['comments_close_on'] >= today && (reg_data['comments_close_on'] == three_weeks_deadline || reg_data['comments_close_on'] == one_week_deadline))
       link = 'http://tag.jurispect.com/#/document/' + reg_data['id']
       message ='You have an upcoming deadline of comment due date for '+ reg_data['type'] + ' '+ reg_data['id']
-      notification = {:creation_time=>now, :message=>message, :show=>true}
+      notification = {:creation_time=>now, :message=>message, :show=>true, :link=>link}
       new_notification = r.db('jurispect').table('notifications').insert(notification).run
       notification_id = new_notification['generated_keys'][0]
-      notifications_with_id = {:notification_id=>notification_id,:creation_time=>now, :message=>message, :show=>true}
+      notifications_with_id = {:notification_id=>notification_id,:creation_time=>now, :message=>message, :show=>true, :link=>link}
       r.db('authentication').table('users').get(user['id']).update{|doc| {'notifications' => doc['notifications'].append(notifications_with_id)} }.run
     elsif(reg_data['effective_on'] && reg_data['effective_on'] >= today && (reg_data['effective_on'] == three_weeks_deadline || reg_data['effective_on'] == one_week_deadline))
       link = 'http://tag.jurispect.com/#/document/' + reg_data['id']
       message ='You have an upcoming deadline of effective date for '+ reg_data['type'] + ' '+ reg_data['id']
-      notification = {:creation_time=>now, :message=>message, :show=>true}
+      notification = {:creation_time=>now, :message=>message, :show=>true, :link=>link}
       new_notification = r.db('jurispect').table('notifications').insert(notification).run
       notification_id = new_notification['generated_keys'][0]
-      notifications_with_id = {:notification_id=>notification_id,:creation_time=>now, :message=>message, :show=>true}
+      notifications_with_id = {:notification_id=>notification_id,:creation_time=>now, :message=>message, :show=>true, :link=>link}
       r.db('authentication').table('users').get(user['id']).update{|doc| {'notifications' => doc['notifications'].append(notifications_with_id)} }.run
     end
 
@@ -53,10 +53,10 @@ users.each{ |user|
       update_reg.each { |update|
         link = 'http://tag.jurispect.com/#/document/' + update['id']
         message ='You have a new update on '+ update['type'] + ' '+ update['id']
-        notification = {:creation_time=>now, :message=>message, :show=>true}
+        notification = {:creation_time=>now, :message=>message, :show=>true, :link=>link}
         new_notification = r.db('jurispect').table('notifications').insert(notification).run
         notification_id = new_notification['generated_keys'][0]
-        notifications_with_id = {:notification_id=>notification_id,:creation_time=>now, :message=>message, :show=>true}
+        notifications_with_id = {:notification_id=>notification_id,:creation_time=>now, :message=>message, :show=>true, :link=>link}
         r.db('authentication').table('users').get(user['id']).update{|doc| {'otifications'=> doc['notifications'].append(notifications_with_id)} }.run
       }
 
@@ -73,10 +73,10 @@ users.each{ |user|
     new_agency_data.each { |data|
       link = 'http://tag.jurispect.com/#/document/' + data['id']
       message = agency_name['name'] + ' has published a new article.'
-      notification = {:creation_time=>now, :message=>message, :show=>true}
+      notification = {:creation_time=>now, :message=>message, :show=>true, :link=>link}
       new_notification = r.db('jurispect').table('notifications').insert(notification).run
       notification_id = new_notification['generated_keys'][0]
-      notifications_with_id = {:notification_id=>notification_id,:creation_time=>now, :message=>message, :show=>true}
+      notifications_with_id = {:notification_id=>notification_id,:creation_time=>now, :message=>message, :show=>true, :link=>link}
       r.db('authentication').table('users').get(user['id']).update{|doc| {'notifications'=> doc['notifications'].append(notifications_with_id)} }.run
     }
 
