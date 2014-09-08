@@ -2,15 +2,21 @@ require 'rubygems'
 require 'open-uri'
 require 'rethinkdb'
 require 'date'
+require 'net/http'
+require 'uri'
+require 'json'
 include RethinkDB::Shortcuts
 
 
 r.connect(:host=>"162.242.238.193", :port=>28015).repl
 
+uri = URI.parse('http://www.knowtify.io/api/v1/contacts/add')
+req = Net::HTTP::Post.new(uri.path)
 
 users = r.db('authentication').table('users').run
 
-output = []
+
+contacts = []
 summaries = []
 today = Time.now.strftime('%Y-%m-%d')
 deadline = (Time.now + (3*7*24*60*60)).strftime('%Y-%m-%d')
@@ -28,6 +34,7 @@ users.each{ |user|
 
 
   follows.each{ |follow|
+
     docId= follow['destination']
 
     reg_data = r.db('jurispect').table('documents').get(docId).pluck('comments_close_on', 'effective_on', 'dates', 'docket_ids', 'publication_date', 'id', 'title', 'agencies').run
@@ -80,20 +87,31 @@ users.each{ |user|
     user_news.push(news_article)
   }
 
-  result = {Name: user['first_name'], Email: user['email'],  data: { Deadlines: user_deadlines, Updates: user_updates, Recomended: recommended, News: user_news}}
+  result = {:name=>user['first_name'], :email=>user['email'],  :data=> { Deadlines: user_deadlines, Updates: user_updates, Recomended: recommended, News: user_news}}
  
-  output.push(result)
+  contacts.push(result)
 
 
 }
+p contacts
+post_params = {:contacts => contacts}
 
-p output
+req.body = JSON.generate(post_params)
+req["Content-Type"] = "application/json"
+req["Authorization"] = 'Token token="14c9821031f134cd1f8a8b74bb974b28"'
 
+http = Net::HTTP.new(uri.host, uri.port)
+response = http.start { |htt| htt.request(req) }
+
+p response
+
+
+=begin
 file_name = "daily_stats"+today+".xls"
 
 File.open(file_name, "w+") do |f|
   output.each { |element| f.puts(element)}
 end
-
+=end
 
 
