@@ -106,12 +106,11 @@ response = http.start { |htt| htt.request(req) }
 p response
 
 
-=begin
 file_name = "daily_stats"+today+".xls"
 
 File.open(file_name, "w+") do |f|
-  output.each { |element| f.puts(element)}
+  contacts.each { |element| f.puts(element)}
 end
-=end
+
 
 

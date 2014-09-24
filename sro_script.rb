@@ -8,7 +8,7 @@ include RethinkDB::Shortcuts
 r.connect(:host=>"162.242.238.193", :port=>28015).repl
 
 
-SROs = r.db('jurispect').table('documents').filter({:type => 'Notice'}).run
+SROs = r.db('jurispect').table('documents').get_all('Notice', :index => 'type').run
 
 SROs.each{ |sro| 
   begin
@@ -17,11 +17,23 @@ SROs.each{ |sro|
     
     if sro['toc_subject'].include? "Proposed Rule"
       type = "Proposed Rule"
+      sro_name = sro['toc_doc'].downcase
     else
       type = "Rule"
+      sro_name = sro['toc_doc'].downcase
+    end
+
+    if (sro['toc_subject'] == null ) && (sro['title'].include? "Self-Regulatory Organizations")
+      if sro['title'].inclue? "Proposed Rule"
+        type = "Proposed Rule"
+        sro_name = sro['title'].downcase
+      else
+        type = "Rule"
+        sro_name = sro['title'].downcase
+      end
     end
     
-    sro_name = sro['toc_doc'].downcase
+    
     
     if(sro_name.include? "bats exchange")
       agency = {:id=>9001,:name=>'BATS Exchange',:raw_name=>'BATS Exchange', :url=>'http://batstrading.com', :parent_id=>466,:json_url=>''}
@@ -225,8 +237,9 @@ SROs.each{ |sro|
       agencies.push(agency)
     end
     
-
-    r.db('jurispect').table('documents').get(docId).update({:type=>type, :agencies=>agencies, :sro=>true}).run
+    if(!agencies.empty?)
+      r.db('jurispect').table('documents').get(docId).update({:type=>type, :agencies=>agencies, :sro=>true}).run
+    end
   rescue
   end
   
