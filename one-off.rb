@@ -6,9 +6,23 @@ include RethinkDB::Shortcuts
 
 
 r.connect(:host=>"162.242.238.193", :port=>28015).repl
-r.db("jurispect").table("cfr_topics").run
 
 
+
+
+news = r.db('jurispect').table('news').filter{ |doc| (doc['creation_time'].eq('2014-09-23').not()) & (doc['creation_time'].eq('2014-09-24').not() ) & (doc['creation_time'].eq('2014-09-25').not() )}.pluck('id', 'creation_time').run
+news.each{ |item|
+
+  new_time = item['creation_time'].strftime("%Y-%m-%d")
+  id = item['id']
+
+  r.db('jurispect').table('news').get(id).update({:creation_time=>new_time}).run
+
+  p new_time
+}
+
+
+=begin
 cfr_array = r.db('jurispect').table('cfr_topics').pluck("part", "title", "topics").run
 
 cfr_array.each{ |cfr| 
@@ -40,3 +54,4 @@ cfr_array.each{ |cfr|
  }
 
 }
+=end

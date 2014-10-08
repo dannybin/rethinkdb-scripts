@@ -36,7 +36,13 @@ DOJ_ALL.each{ |doc|
   agency = doc['agencies'][0]['name']
   title = doc['title']
   cfr = doc['cfr_references'].join(';')
-  fr = doc['citation'] 
+  fr = doc['citation']
+
+  if(summary)
+    if((summary.include? 'assets of') || (summary.include? 'exemption threshold') )
+      result = [id]
+    end
+  end
 
   result = [title, summary, pdf_url, id, type, agency, publication_date, important_date, effective_date, docket_ids, cfr, fr]
   doj_result.push(result)
@@ -63,6 +69,12 @@ FTC_ALL.each{ |doc|
   title = doc['title']
   cfr = doc['cfr_references'].join(';')
   fr = doc['citation'] 
+
+  if(summary)
+    if((summary.include? 'assets of') || (summary.include? 'exemption threshold') )
+      result = [id]
+    end
+  end
 
   result = [title, summary, pdf_url, id, type, agency, publication_date, important_date, effective_date, docket_ids, cfr, fr]
   ftc_result.push(result)
@@ -94,6 +106,12 @@ SEC_ALL.each{ |doc|
   cfr = doc['cfr_references'].join(';')
   fr = doc['citation'] 
 
+  if(summary)
+    if((summary.include? 'assets of') || (summary.include? 'exemption threshold') )
+      result = [id]
+    end
+  end
+
   result = [title, summary, pdf_url, id, type, agency, publication_date, important_date, effective_date, docket_ids, cfr, fr]
   sec_result.push(result)
 }
@@ -124,6 +142,12 @@ FFIEC_ALL.each{ |doc|
   cfr = doc['cfr_references'].join(';')
   fr = doc['citation'] 
 
+  if(summary)
+    if((summary.include? 'assets of') || (summary.include? 'exemption threshold') )
+      result = [id]
+    end
+  end
+
   result = [title, summary, pdf_url, id, type, agency, publication_date, important_date, effective_date, docket_ids, cfr, fr]
   ffiec_result.push(result)
 }
@@ -150,6 +174,12 @@ HUD_ALL.each{ |doc|
   title = doc['title']
   cfr = doc['cfr_references'].join(';')
   fr = doc['citation'] 
+
+  if(summary)
+    if((summary.include? 'assets of') || (summary.include? 'exemption threshold') )
+      result = [id]
+    end
+  end
 
   result = [title, summary, pdf_url, id, type, agency, publication_date, important_date, effective_date, docket_ids, cfr, fr]
   hud_result.push(result)
@@ -179,6 +209,12 @@ CFTC_ALL.each{ |doc|
   cfr = doc['cfr_references'].join(';')
   fr = doc['citation'] 
 
+  if(summary)
+    if((summary.include? 'assets of') || (summary.include? 'exemption threshold') )
+      result = [id]
+    end
+  end
+
   result = [title, summary, pdf_url, id, type, agency, publication_date, important_date, effective_date, docket_ids, cfr, fr]
   cftc_result.push(result)
 }
@@ -205,6 +241,12 @@ FDIC_ALL.each{ |doc|
   title = doc['title']
   cfr = doc['cfr_references'].join(';')
   fr = doc['citation'] 
+
+  if(summary)
+    if((summary.include? 'assets of') || (summary.include? 'exemption threshold') )
+      result = [id]
+    end
+  end
 
   result = [title, summary, pdf_url, id, type, agency, publication_date, important_date, effective_date, docket_ids, cfr, fr]
   fdic_result.push(result)
@@ -234,6 +276,12 @@ CFPB_ALL.each{ |doc|
   cfr = doc['cfr_references'].join(';')
   fr = doc['citation']  
 
+  if(summary)
+    if((summary.include? 'assets of') || (summary.include? 'exemption threshold') )
+      result = [id]
+    end
+  end
+
   result = [title, summary, pdf_url, id, type, agency, publication_date, important_date, effective_date, docket_ids, cfr, fr]
   cfpb_result.push(result)
 }
@@ -260,6 +308,12 @@ FRB_ALL.each{ |doc|
   title = doc['title']
   cfr = doc['cfr_references'].join(';')
   fr = doc['citation']  
+
+  if(summary)
+    if((summary.include? 'assets of') || (summary.include? 'exemption threshold') )
+      result = [id]
+    end
+  end
 
   result = [title, summary, pdf_url, id, type, agency, publication_date, important_date, effective_date, docket_ids, cfr, fr]
   frb_result.push(result)
@@ -291,6 +345,12 @@ FCPA.each{ |doc|
   cfr = doc['cfr_references'].join(';')
   fr = doc['citation']  
 
+  if(summary)
+    if((summary.include? 'assets of') || (summary.include? 'exemption threshold') )
+      result = [id]
+    end
+  end
+
   result = [title, summary, pdf_url, id, type, agency, publication_date, important_date, effective_date, docket_ids, cfr, fr]
   fcpa_result.push(result)
 }
@@ -308,6 +368,12 @@ FCPA_short.each{ |doc|
   title = doc['title']
   cfr = doc['cfr_references'].join(';')
   fr = doc['citation']  
+
+  if(summary)
+    if((summary.include? 'assets of') || (summary.include? 'exemption threshold') )
+      result = [id]
+    end
+  end
 
   result = [title, summary, pdf_url, id, type, agency, publication_date, important_date, effective_date, docket_ids, cfr, fr]
   fcpa_result.push(result)
@@ -339,6 +405,12 @@ COPPA.each{ |doc|
   cfr = doc['cfr_references'].join(';')
   fr = doc['citation']  
 
+  if(summary)
+    if((summary.include? 'assets of') || (summary.include? 'exemption threshold') )
+      result = [id]
+    end
+  end
+
   result = [title, summary, pdf_url, id, type, agency, publication_date, important_date, effective_date, docket_ids, cfr, fr]
   coppa_result.push(result)
 }
@@ -356,6 +428,12 @@ COPPA_full.each{ |doc|
   title = doc['title']
   cfr = doc['cfr_references'].join(';')
   fr = doc['citation']  
+
+  if(summary)
+    if((summary.include? 'assets of') || (summary.include? 'exemption threshold') )
+      result = [id]
+    end
+  end
 
   result = [title, summary, pdf_url, id, type, agency, publication_date, important_date, effective_date, docket_ids, cfr, fr]
   coppa_result.push(result)
@@ -386,6 +464,12 @@ CANSPAM.each{ |doc|
   cfr = doc['cfr_references'].join(';')
   fr = doc['citation']  
 
+  if(summary)
+    if((summary.include? 'assets of') || (summary.include? 'exemption threshold') )
+      result = [id]
+    end
+  end
+
   result = [title, summary, pdf_url, id, type, agency, publication_date, important_date, effective_date, docket_ids, cfr, fr]
   canspam_result.push(result)
 }
@@ -403,6 +487,12 @@ CANSPAM_full.each{ |doc|
   title = doc['title']
   cfr = doc['cfr_references'].join(';')
   fr = doc['citation']  
+
+  if(summary)
+    if((summary.include? 'assets of') || (summary.include? 'exemption threshold') )
+      result = [id]
+    end
+  end
 
   result = [title, summary, pdf_url, id, type, agency, publication_date, important_date, effective_date, docket_ids, cfr, fr]
   canspam_result.push(result)
