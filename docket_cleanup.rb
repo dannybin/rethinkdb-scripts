@@ -7,8 +7,9 @@ include RethinkDB::Shortcuts
 
 r.connect(:host=>"162.242.238.193", :port=>28015).repl
 
+today = Time.now.strftime('%Y-%m-%d')
 
-doc_array = r.db('jurispect').table('documents').pluck("id", "docket_ids").run
+doc_array = r.db('jurispect').table('documents').get_all(today, :index=>'publication_date').pluck("id", "docket_ids").run
 
 doc_array.each{ |doc| 
  
@@ -322,6 +323,6 @@ doc_array.each{ |doc|
    end
   
  } 
-
+ p docket_arr
  r.db('jurispect').table('documents').get(doc_id).update({:docket_ids=>docket_arr}).run
 }
