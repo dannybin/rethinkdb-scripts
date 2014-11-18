@@ -10,7 +10,7 @@ include RethinkDB::Shortcuts
 
 r.connect(:host=>"162.242.238.193", :port=>28015).repl
 
-uri = URI.parse('http://www.knowtify.io/api/v1/contacts/add')
+uri = URI.parse('http://www.knowtify.io/api/v1/contacts/edit')
 req = Net::HTTP::Post.new(uri.path)
 
 users = r.db('authentication').table('users').run
@@ -83,7 +83,7 @@ users.each{ |user|
   
   email_news = r.db('jurispect').table('email_news').filter{ |news| news['creation_time'].eq(today)}.run
   email_news.each{ |article|
-    news_article = {:title=>article['title'], :link=>article['link'], :source=>article['source']}
+    news_article = {:title=>article['title'], :link=>article['link'], :source=>article['source'], :industry=>article['industry']}
     user_news.push(news_article)
   }
 
