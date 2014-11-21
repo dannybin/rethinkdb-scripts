@@ -7,8 +7,8 @@ include RethinkDB::Shortcuts
 
 r.connect(:host=>"162.242.238.193", :port=>28015).repl
 
-today = Time.now.strftime('%Y-%m-%d')
-
+#today = Time.now.strftime('%Y-%m-%d')
+today = "2014-11-20"
 
 new_documents = r.db('jurispect').table('documents').get_all(today, :index=>'publication_date').pluck("id", "docket_ids", "publication_date").run
 

@@ -28,7 +28,13 @@ users.each{ |user|
   user_updates = []
   recommended = []
   user_news = []
+  user_industry = []
+  industry_ids = user['industry']
 
+  industry_ids.each { |industry_id|
+    name = r.db('jurispect').table('industries').get(industry_id).pluck('title').run;
+    user_industry.push(name['title']) 
+  }
 
   follows = r.db('jurispect').table('actions').filter({origin: user['id']}).run
 
@@ -81,14 +87,16 @@ users.each{ |user|
 
   }
   
-  email_news = r.db('jurispect').table('email_news').filter{ |news| news['creation_time'].eq(today)}.run
-  email_news.each{ |article|
-    news_article = {:title=>article['title'], :link=>article['link'], :source=>article['source'], :industry=>article['industry']}
-    user_news.push(news_article)
+  user_industry.each{ |industry_name|
+    email_news = r.db('jurispect').table('email_news').filter{ |news| news['creation_time'].eq(today).and(news['industry'].eq(industry_name))}.run
+    email_news.each{ |article|
+      news_article = {:title=>article['title'], :link=>article['link'], :source=>article['source'], :industry=>article['industry']}
+      user_news.push(news_article)
+    }
   }
-
+  
   result = {:name=>user['first_name'], :email=>user['email'],  :data=> { Deadlines: user_deadlines, Updates: user_updates, Recomended: recommended, News: user_news}}
- 
+  
   contacts.push(result)
 
 
